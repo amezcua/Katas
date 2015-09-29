@@ -1,7 +1,7 @@
 package net.byteabyte.katas.romannumerals;
 
 public class RomanNumerals {
-    public static String convert(int i) throws CantConvertNumberException{
+    public static String convert(int i){
 
         String output = "";
         char[] digits = String.valueOf(i).toCharArray();
@@ -43,8 +43,8 @@ public class RomanNumerals {
             }
             case 4:{
                 symbols[0] = "M";
-                symbols[1] = "Vb";
-                symbols[2] = "Mb";
+                symbols[1] = "M";
+                symbols[2] = "M";
 
                 break;
             }

@@ -1,59 +1,58 @@
-import net.byteabyte.katas.romannumerals.CantConvertNumberException;
 import net.byteabyte.katas.romannumerals.RomanNumerals;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestRomanNumerals {
 
-    @Test public void testNumberOne() throws CantConvertNumberException {
+    @Test public void testNumberOne() {
         assertEquals("I", RomanNumerals.convert(1));
     }
 
-    @Test public void testNumberTwo() throws CantConvertNumberException {
+    @Test public void testNumberTwo() {
         assertEquals("II", RomanNumerals.convert(2));
     }
 
-    @Test public void testNumberThree() throws CantConvertNumberException {
+    @Test public void testNumberThree() {
         assertEquals("III", RomanNumerals.convert(3));
     }
 
-    @Test public void testNumberFour() throws CantConvertNumberException {
+    @Test public void testNumberFour() {
         assertEquals("IV", RomanNumerals.convert(4));
     }
 
-    @Test public void testNumberFive() throws CantConvertNumberException {
+    @Test public void testNumberFive() {
         assertEquals("V", RomanNumerals.convert(5));
     }
 
-    @Test public void testNumberSix() throws CantConvertNumberException {
+    @Test public void testNumberSix() {
         assertEquals("VI", RomanNumerals.convert(6));
     }
 
-    @Test public void testNumberTen() throws CantConvertNumberException {
+    @Test public void testNumberTen() {
         assertEquals("X", RomanNumerals.convert(10));
     }
 
-    @Test public void testNumberEleven() throws CantConvertNumberException {
+    @Test public void testNumberEleven() {
         assertEquals("XI", RomanNumerals.convert(11));
     }
 
-    @Test public void testNumberFifty() throws CantConvertNumberException {
+    @Test public void testNumberFifty() {
         assertEquals("L", RomanNumerals.convert(50));
     }
 
-    @Test public void testNumberOneHundred() throws CantConvertNumberException {
+    @Test public void testNumberOneHundred() {
         assertEquals("C", RomanNumerals.convert(100));
     }
 
-    @Test public void testNumberFiveHundred() throws CantConvertNumberException {
+    @Test public void testNumberFiveHundred() {
         assertEquals("D", RomanNumerals.convert(500));
     }
 
-    @Test public void testNumberOneThousand() throws CantConvertNumberException {
+    @Test public void testNumberOneThousand() {
         assertEquals("M", RomanNumerals.convert(1000));
     }
 
-    @Test public void testRandomNumbers() throws CantConvertNumberException {
+    @Test public void testRandomNumbers() {
         assertEquals("XCVII", RomanNumerals.convert(97));
         assertEquals("XIV", RomanNumerals.convert(14));
         assertEquals("MX", RomanNumerals.convert(1010));
@@ -63,5 +62,7 @@ public class TestRomanNumerals {
         assertEquals("MCMXC", RomanNumerals.convert(1990));
         assertEquals("MMVIII", RomanNumerals.convert(2008));
         assertEquals("XCV", RomanNumerals.convert(95));
+        assertEquals("MCMXCIX", RomanNumerals.convert(1999));
+
     }
 }
