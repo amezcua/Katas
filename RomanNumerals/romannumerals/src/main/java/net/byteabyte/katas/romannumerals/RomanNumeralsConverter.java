@@ -3,6 +3,9 @@ package net.byteabyte.katas.romannumerals;
 import java.util.Arrays;
 
 public class RomanNumeralsConverter {
+
+    private static final char[] EMPTY_SYMBOLS = new char[0];
+
     public String convert(int number){
 
         StringBuilder output = new StringBuilder();
@@ -21,34 +24,29 @@ public class RomanNumeralsConverter {
     private char[] getSymbolForDigitAtPlace(int digit, DigitPlace place){
         char[] validSymbolsForPlace = getValidSymbolsForPlace(place);
 
-        char[] outputSymbols;
+        char[] outputSymbols = EMPTY_SYMBOLS;
 
-        if(digit == 0){
-            outputSymbols = null;
-        }else if(digit <= 3){
-            outputSymbols = getSymbolsForDigitLessThanThree(digit, validSymbolsForPlace);
-        }else if(digit == 4){
-            outputSymbols = getSymbolsForDigitFour(validSymbolsForPlace);
-        }else if(digit == 5){
-            outputSymbols = getSymbolsForDigitFive(validSymbolsForPlace);
-        }else if(digit > 5 && digit < 9){
-            outputSymbols = getSymbolsForDigitsBetweenFiveAndNine(digit, validSymbolsForPlace);
-        }else if(digit == 9){
-            outputSymbols = getSymbolsForDigitNine(validSymbolsForPlace);
-        }else{
-            outputSymbols = null;
+        if(digit != 0) {
+            if (digit <= 3) {
+                outputSymbols = getSymbolsForDigitLessThanThree(digit, validSymbolsForPlace);
+            } else if (digit == 4) {
+                outputSymbols = getSymbolsForDigitFour(validSymbolsForPlace);
+            } else if (digit == 5) {
+                outputSymbols = getSymbolsForDigitFive(validSymbolsForPlace);
+            } else if (digit > 5 && digit < 9) {
+                outputSymbols = getSymbolsForDigitsBetweenFiveAndNine(digit, validSymbolsForPlace);
+            } else if (digit == 9) {
+                outputSymbols = getSymbolsForDigitNine(validSymbolsForPlace);
+            }
         }
-        return outputSymbols == null ? new char[0] : outputSymbols;
-    }
-
-    private char[] getSymbolsForDigitNine(char[] validPlaceSymbols) {
-        char[] outputSymbols;
-        outputSymbols = new char[] { validPlaceSymbols[0], validPlaceSymbols[2] };
         return outputSymbols;
     }
 
+    private char[] getSymbolsForDigitNine(char[] validPlaceSymbols) {
+        return new char[] { validPlaceSymbols[0], validPlaceSymbols[2] };
+    }
+
     private char[] getSymbolsForDigitsBetweenFiveAndNine(int digit, char[] validPlaceSymbols) {
-        char[] outputSymbols;
         StringBuilder b = new StringBuilder();
         b.append(validPlaceSymbols[1]);
 
@@ -59,7 +57,7 @@ public class RomanNumeralsConverter {
 
         b.append(repeatDigits);
 
-        outputSymbols = new char[repeatCount+1];
+        char[] outputSymbols = new char[repeatCount+1];
         b.getChars(0, outputSymbols.length, outputSymbols, 0);
         return outputSymbols;
     }
